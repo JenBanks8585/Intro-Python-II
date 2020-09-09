@@ -1,4 +1,6 @@
 from room import Room
+from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -21,6 +23,12 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
+def get_rooms(dict):
+    room_list = list(dict.keys())
+    return room_list
+
+#print(get_rooms(room))
+#print(room['outside'])
 
 # Link rooms together
 
@@ -38,13 +46,19 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+player1= Player('Marcus', 'the maker', room['outside'])
 
 # Write a loop that:
 #
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
-#
+playing_game = True
+
+while playing_game:
+    print(f"This palyer's name is {player1.name}")
+    print(player1.current_room)
+    break
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
 #

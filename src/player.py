@@ -1,7 +1,7 @@
 # Write a class to hold player information, e.g. what room they are in
 # currently.
 
-class Player():
+class Player:
     def __init__(self, name = "Finney", description = "Mr funny guy", current_room = 'family room'):
         self.name = name 
         self.description = description
@@ -14,9 +14,9 @@ class Player():
 
 
 
-player1= Player('Marcus', 'the maker', 'bedroom')
-player2= Player('Janice', 'the jumping girl', 'bathroom')
-player3= Player('Bob', 'the burger lover', 'basement')
-player4= Player('Sandy', 'the dancing queen', 'kitchen')
+player1= Player('Marcus', 'the maker', 'outside')
+player2= Player('Janice', 'the jumping girl', 'foyer')
+player3= Player('Bob', 'the burger lover', 'overlook')
+player4= Player('Sandy', 'the dancing queen', 'narrow')
 
-print(player1)
+#print(player1)
