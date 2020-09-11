@@ -1,8 +1,9 @@
 from room import Room
 from player import Player
 from item import Item
+import sys
 
-# Declare all the rooms
+## Declare all the rooms
 
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -23,14 +24,7 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
-def get_rooms(dict):
-    room_list = list(dict.keys())
-    return room_list
 
-#print(get_rooms(room))
-#print(room['outside'])
-
-# Link rooms together
 
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -41,25 +35,60 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
-#
-# Main
-#
 
-# Make a new player object that is currently in the 'outside' room.
-player1= Player('Marcus', 'the maker', room['outside'])
+directions = {'n', 'e', 's', 'w'}
 
-# Write a loop that:
-#
-# * Prints the current room name
-# * Prints the current description (the textwrap module might be useful here).
-# * Waits for user input and decides what to do.
+
+print("################################################")
+print("################################################")
+print("  ")
+print("Welcome to Adventure Game!")
+print("All you need to do is find the Treasure Room!")
+print("  ")
+print("################################################")
+print("################################################")
+print("  ")
+
+
 playing_game = True
 
-while playing_game:
-    print(f"This palyer's name is {player1.name}")
-    print(player1.current_room)
-    break
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-#
-# If the user enters "q", quit the game.
+player = str(input('What is your name? \n'))
+
+print("  ")
+print("################################################")
+print("################################################")
+print("  ")
+
+player1= Player(player, 'the maker', room['outside'])
+print(f'Hey {player1.name}, {player1.current_room}')
+
+print("  ")
+print("################################################")
+print("################################################")
+print("  ")
+
+while playing_game:    
+    
+    print("  ")
+    print("################################################")
+    print("################################################")
+    print("  ")
+    
+    direc = (input("Where do you want to go? \n [n] North  [e] East   [s] South    [w] West \n"))
+
+    if direc in directions:
+        player1.move_player(direc)
+        
+        print("  ")
+        print("################################################")
+        print("################################################")
+        print("  ")
+        print(player1.current_room)
+
+    
+
+    elif direc == 'q':
+        print( 'Thanks for playing')
+        sys.exit()
+
+    

@@ -12,12 +12,20 @@ class Room:
 
 
     def __str__(self):
-        return f"This is the {self.name}, and {self.description}."
+        return f"You are at the {self.name}, and {self.description}."
 
+    def other_rooms(self, direction):
+        if direction == 'n':
+          return self.n_to
+        elif direction == 'e':
+          return self.e_to
+        elif direction =='s':
+          return self.s_to
+        elif direction == 'w':
+          return self.w_to
+        else:
+          return ('Sorry pal, can\'t go there.')
 
-
-
-#room1= Room('bedroom', 'when I am too tired, you\'ll find me here.')
 
 
 

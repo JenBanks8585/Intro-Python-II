@@ -2,7 +2,7 @@
 # description attributes.
 
 class Item:
-    def __init__(self, name = "bracelet", description = "this should be in the bedroom.", current_room= 'family room'):
+    def __init__(self, name = "bracelet", description = "this should be in the bedroom.", current_room= 'foyer'):
         self.name = name 
         self.description = description
         self.current_room= current_room
